@@ -37,6 +37,12 @@
       "@public": [
         "public"
       ],
+      "@constants/*": [
+        "src/constants/*"
+      ],
+      "@constants": [
+        "src/constants"
+      ],
       "@components/icons/*": [
         "src/components/icons/*"
       ],

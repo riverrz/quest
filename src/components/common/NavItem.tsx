@@ -5,7 +5,7 @@ export const NavItem = styled("a", {
     color: "$grey",
     cursor: "pointer",
     fontFamily: "inherit",
-    fontSize: "1rem",
+    fontSize: "inherit",
     padding: "0.8rem",
     border: "none",
     fontWeight: "bold",
