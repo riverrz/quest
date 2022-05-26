@@ -2,6 +2,7 @@ import React from "react";
 import { AppProps } from "next/app";
 import { globalStyles } from "@styles/globalStyles";
 import Head from "next/head";
+import Nav from "@components/Nav/Nav";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     globalStyles();
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 />
             </Head>
             <Component {...pageProps} />
+            <Nav />
         </>
     );
 }

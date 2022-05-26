@@ -12,8 +12,10 @@ export const {
 } = createStitches({
     theme: {
         colors: {
-            gray400: "gainsboro",
-            gray500: "lightgray",
+            darkPrimary: "#000",
+            white: "rgb(255,255,255)",
+            grey: "rgb(255,255,255, 0.8)",
+            orange: "#FFAA33",
         },
     },
     media: {

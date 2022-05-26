@@ -1,4 +1,4 @@
-import { globalCss } from "@config/stitches.config";
+import { globalCss } from "@styles/stitches.config";
 
 export const globalStyles = globalCss({
     "*, *::after, *::before": {
@@ -13,6 +13,8 @@ export const globalStyles = globalCss({
         height: "100%",
         width: "100%",
         fontFamily: "Sofia Pro, sans-serif",
+        backgroundColor: "$darkPrimary",
+        color: "$white",
     },
     "#__next": {
         height: "100%",
