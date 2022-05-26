@@ -8,16 +8,22 @@ import {
     SocialMediaContainer,
 } from "./Nav.styles";
 import { NavItem } from "@components/common";
+import { useRouter } from "next/router";
 
 const Nav: React.FC = () => {
+    const router = useRouter();
     const currentDate = new Date().toLocaleDateString();
     return (
         <Container>
             <CurrentDateContainer>{currentDate}</CurrentDateContainer>
             <NavItemsContainer>
-                <NavItem>Tutorials</NavItem>
-                <NavItem active>Hello</NavItem>
-                <NavItem>Work</NavItem>
+                {NAV_ITEMS.map(({ path, title }) => (
+                    <Link passHref key={path} href={path}>
+                        <NavItem active={path === router.pathname}>
+                            {title}
+                        </NavItem>
+                    </Link>
+                ))}
             </NavItemsContainer>
             <SocialMediaContainer>
                 {socialMediaHandles.map(({ socialMedia, Icon, link }) => (
@@ -31,5 +37,20 @@ const Nav: React.FC = () => {
         </Container>
     );
 };
+
+const NAV_ITEMS = [
+    {
+        path: "/blog",
+        title: "Blogs",
+    },
+    {
+        path: "/",
+        title: "Home",
+    },
+    {
+        path: "/work",
+        title: "Work",
+    },
+];
 
 export default Nav;
