@@ -1,13 +1,14 @@
 import React from "react";
 import { NextSeo } from "next-seo";
+import Home from "@components/Home/Home";
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
     return (
         <>
             <NextSeo title="Home" description="Get to know about me!" />
-            <h1>Home</h1>
+            <Home />
         </>
     );
 };
 
-export default Home;
+export default HomePage;
