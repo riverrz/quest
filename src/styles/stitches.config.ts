@@ -19,7 +19,8 @@ export const {
         },
     },
     media: {
-        sm: "(min-width: 480px)",
+        sm: "(max-width: 480px)",
+        md: "(max-width: 720px)",
     },
     utils: {
         marginX: (value: number) => ({ marginLeft: value, marginRight: value }),
