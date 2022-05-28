@@ -15,7 +15,7 @@ const Layout: React.FC = ({ children }) => {
                 <Link href={prevPath}>
                     <a>
                         <SphereContainer left>
-                            <Sphere />
+                            <Sphere mask="left" />
                         </SphereContainer>
                     </a>
                 </Link>
@@ -25,7 +25,7 @@ const Layout: React.FC = ({ children }) => {
                 <Link href={nextPath}>
                     <a>
                         <SphereContainer right>
-                            <Sphere />
+                            <Sphere mask="right" />
                         </SphereContainer>
                     </a>
                 </Link>

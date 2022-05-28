@@ -20,11 +20,39 @@ const SphereContainer = styled("div", {
     [`&:hover ${StyledSphere}`]: {
         transform: "scale(1.1)",
     },
+    "&::after": {
+        content: "",
+        position: "absolute",
+        zIndex: 1,
+        backgroundColor: "#000",
+    },
+    variants: {
+        mask: {
+            left: {
+                "&:after": {
+                    top: -10,
+                    width: "calc(50% + 10px)",
+                    left: -10,
+                    bottom: -10,
+                },
+            },
+            right: {
+                "&:after": {
+                    top: -10,
+                    width: "calc(50% + 10px)",
+                    right: -10,
+                    bottom: -10,
+                },
+            },
+        },
+    },
 });
 
-export const Sphere: React.FC = () => {
+export const Sphere: React.FC<React.ComponentProps<typeof SphereContainer>> = (
+    props,
+) => {
     return (
-        <SphereContainer>
+        <SphereContainer {...props}>
             <Halo css={{ height: 350, width: 350 }} right left top bottom />
             <StyledSphere />
         </SphereContainer>
