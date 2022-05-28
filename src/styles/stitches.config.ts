@@ -14,7 +14,7 @@ export const {
         colors: {
             darkPrimary: "#000",
             white: "rgb(255,255,255)",
-            grey: "rgb(255,255,255, 0.8)",
+            grey: "rgb(255,255,255, 0.7)",
             orange: "#FFAA33",
         },
     },
