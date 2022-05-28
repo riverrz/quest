@@ -15,7 +15,7 @@ export const Heading = styled("h1", {
 });
 
 export const TopSection = styled("div", {
-    height: "20%",
+    height: "25%",
 });
 
 export const Hero = styled("div", {
@@ -26,25 +26,6 @@ export const Hero = styled("div", {
     },
     "@sm": {
         padding: "20px",
-    },
-});
-
-export const SphereContainer = styled("div", {
-    position: "absolute",
-    top: "50%",
-    variants: {
-        left: {
-            true: {
-                left: 0,
-                transform: "translate(-50%, -50%)",
-            },
-        },
-        right: {
-            true: {
-                right: 0,
-                transform: "translate(50%, -50%)",
-            },
-        },
     },
 });
 

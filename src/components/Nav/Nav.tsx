@@ -38,7 +38,7 @@ const Nav: React.FC = () => {
     );
 };
 
-const NAV_ITEMS = [
+export const NAV_ITEMS = [
     {
         path: "/blog",
         title: "Blogs",

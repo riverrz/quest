@@ -3,6 +3,7 @@ import { AppProps } from "next/app";
 import { globalStyles } from "@styles/globalStyles";
 import Head from "next/head";
 import Nav from "@components/Nav/Nav";
+import Layout from "@components/Layout/Layout";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     globalStyles();
@@ -14,7 +15,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     rel="stylesheet"
                 />
             </Head>
-            <Component {...pageProps} />
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
             <Nav />
         </>
     );

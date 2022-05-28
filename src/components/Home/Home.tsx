@@ -1,5 +1,5 @@
 import React from "react";
-import { Halo, Sphere } from "@components/common";
+import { Halo } from "@components/common";
 import { Container } from "./Home.styles";
 import {
     Heading,
@@ -9,7 +9,6 @@ import {
     SubHeadingContainer,
     Spacer,
     TopSection,
-    SphereContainer,
 } from "./Home.styles";
 
 const Home: React.FC = () => {
@@ -17,9 +16,6 @@ const Home: React.FC = () => {
         <Container>
             <TopSection />
             <Hero>
-                <SphereContainer left>
-                    <Sphere />
-                </SphereContainer>
                 <Halo left right />
                 <Heading>Hello.</Heading>
                 <SubHeadingContainer>
@@ -32,9 +28,6 @@ const Home: React.FC = () => {
                         </Description>
                     </div>
                 </SubHeadingContainer>
-                <SphereContainer right>
-                    <Sphere />
-                </SphereContainer>
             </Hero>
         </Container>
     );
