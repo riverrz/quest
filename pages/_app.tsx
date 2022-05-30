@@ -6,6 +6,7 @@ import Head from "next/head";
 import Nav from "@components/Nav/Nav";
 import Layout from "@components/Layout/Layout";
 import { styled } from "@styles/stitches.config";
+import { useLastRoute } from "@hooks";
 
 const AppWrap = styled("div", {
     height: "100%",
@@ -14,6 +15,8 @@ const AppWrap = styled("div", {
 
 function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
     globalStyles();
+    const lastRoute = useLastRoute();
+
     return (
         <>
             <Head>
@@ -23,13 +26,13 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
                 />
             </Head>
             <AppWrap>
-                <LazyMotion features={domAnimation}>
+                <LazyMotion features={domAnimation} strict>
                     <AnimatePresence
                         exitBeforeEnter={false}
                         initial={false}
                         onExitComplete={() => window.scrollTo(0, 0)}
                     >
-                        <Layout key={router.route}>
+                        <Layout key={router.pathname} lastPath={lastRoute}>
                             <Component {...pageProps} />
                         </Layout>
                     </AnimatePresence>

@@ -25,6 +25,24 @@
       "@components": [
         "src/components"
       ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@hooks": [
+        "src/hooks"
+      ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
+      "@helpers": [
+        "src/helpers"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@lib": [
+        "src/lib"
+      ],
       "@styles/*": [
         "src/styles/*"
       ],

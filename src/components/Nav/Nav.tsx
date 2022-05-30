@@ -9,6 +9,7 @@ import {
 } from "./Nav.styles";
 import { NavItem } from "@components/common";
 import { useRouter } from "next/router";
+import { NAV_ITEMS } from "@constants/navItems";
 
 const Nav: React.FC = () => {
     const router = useRouter();
@@ -38,20 +39,5 @@ const Nav: React.FC = () => {
         </Container>
     );
 };
-
-export const NAV_ITEMS = [
-    {
-        path: "/blog",
-        title: "Blogs",
-    },
-    {
-        path: "/",
-        title: "Home",
-    },
-    {
-        path: "/work",
-        title: "Work",
-    },
-];
 
 export default React.memo(Nav);
