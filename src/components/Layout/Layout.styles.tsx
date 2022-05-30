@@ -1,14 +1,16 @@
+import { m } from "framer-motion";
 import { styled } from "@styles/stitches.config";
 
-export const LayoutContainer = styled("div", {
-    position: "relative",
-    width: "100%",
+export const LayoutContainer = styled(m.div, {
+    position: "absolute",
     height: "100%",
+    width: "100vw",
 });
 
 export const SphereContainer = styled("div", {
     position: "absolute",
     top: "50%",
+    zIndex: 2,
     variants: {
         left: {
             true: {

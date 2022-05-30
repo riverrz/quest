@@ -3,14 +3,42 @@ import { Sphere } from "@components/common";
 import { LayoutContainer, SphereContainer } from "./Layout.styles";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useIsPresent } from "framer-motion";
 import { NAV_ITEMS } from "@components/Nav/Nav";
+
+const animation = {
+    name: "Slide Right",
+    variants: {
+        initial: {
+            left: "-90%",
+        },
+        animate: {
+            left: 0,
+        },
+        exit: {
+            left: "100%",
+        },
+    },
+    transition: {
+        duration: 1,
+    },
+};
 
 const Layout: React.FC = ({ children }) => {
     const router = useRouter();
     const { prevPath, nextPath } = getPrevAndNextPaths(router.pathname);
+    const isPresent = useIsPresent();
+
+    console.log({ current: router.pathname, isPresent });
 
     return (
-        <LayoutContainer>
+        <LayoutContainer
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={animation.variants}
+            transition={animation.transition}
+        >
             {prevPath && (
                 <Link href={prevPath}>
                     <a>
@@ -20,7 +48,9 @@ const Layout: React.FC = ({ children }) => {
                     </a>
                 </Link>
             )}
+
             {children}
+
             {nextPath && (
                 <Link href={nextPath}>
                     <a>

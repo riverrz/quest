@@ -7,11 +7,11 @@ export const globalStyles = globalCss({
         boxSizing: "border-box",
     },
     html: {
-        height: "100%",
+        minHeight: "100vh",
     },
     body: {
-        height: "100%",
-        width: "100%",
+        minHeight: "100vh",
+        overflow: "hidden",
         fontFamily: "Sofia Pro, sans-serif",
         backgroundColor: "$darkPrimary",
         color: "$white",
