@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 const Nav: React.FC = () => {
     const router = useRouter();
     const currentDate = new Date().toLocaleDateString();
+
     return (
         <Container>
             <CurrentDateContainer>{currentDate}</CurrentDateContainer>
@@ -53,4 +54,4 @@ export const NAV_ITEMS = [
     },
 ];
 
-export default Nav;
+export default React.memo(Nav);

@@ -1,6 +1,6 @@
 import React from "react";
 import { AppProps } from "next/app";
-import { AnimatePresence, domAnimation, LazyMotion, m } from "framer-motion";
+import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import { globalStyles } from "@styles/globalStyles";
 import Head from "next/head";
 import Nav from "@components/Nav/Nav";
