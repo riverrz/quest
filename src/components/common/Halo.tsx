@@ -12,22 +12,22 @@ export const Halo = styled("div", {
     variants: {
         left: {
             true: {
-                borderLeft: "1px solid rgba(255, 255,255, 0.5)",
+                borderLeft: "1px solid rgba(255, 255,255, 0.3)",
             },
         },
         right: {
             true: {
-                borderRight: "1px solid rgba(255, 255,255, 0.5)",
+                borderRight: "1px solid rgba(255, 255,255, 0.3)",
             },
         },
         top: {
             true: {
-                borderTop: "1px solid rgba(255, 255,255, 0.5)",
+                borderTop: "1px solid rgba(255, 255,255, 0.3)",
             },
         },
         bottom: {
             true: {
-                borderBottom: "1px solid rgba(255, 255,255, 0.5)",
+                borderBottom: "1px solid rgba(255, 255,255, 0.3)",
             },
         },
     },
