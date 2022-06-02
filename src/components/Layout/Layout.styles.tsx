@@ -7,21 +7,19 @@ export const LayoutContainer = styled(m.div, {
     width: "100vw",
 });
 
-export const SphereContainer = styled("div", {
+export const SphereContainer = styled(m.div, {
     position: "absolute",
-    top: "50%",
+    top: 350,
     zIndex: 2,
     variants: {
         left: {
             true: {
-                left: 0,
-                transform: "translate(-50%, -50%)",
+                left: -100,
             },
         },
         right: {
             true: {
-                right: 0,
-                transform: "translate(50%, -50%)",
+                right: -100,
             },
         },
     },

@@ -11,10 +11,10 @@ export const pageTransitionAnimation = {
             left: 0,
         },
         exitLeft: {
-            left: "100%",
+            left: "-100%",
         },
         exitRight: {
-            left: "-100%",
+            left: "100%",
         },
     },
     transition: {

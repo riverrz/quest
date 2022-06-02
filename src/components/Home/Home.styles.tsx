@@ -20,7 +20,7 @@ export const TopSection = styled("div", {
 
 export const Hero = styled("div", {
     position: "relative",
-    padding: "10vh 12vw",
+    padding: "10vh 15vw",
     "@md": {
         padding: "50px",
     },

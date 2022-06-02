@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { Sphere } from "@components/common";
 import { LayoutContainer, SphereContainer } from "./Layout.styles";
 import Link from "next/link";
@@ -9,6 +9,7 @@ import {
     getAnimationVariants,
 } from "@helpers";
 import { pageTransitionAnimation } from "@lib/animation";
+import { useAnimation } from "framer-motion";
 
 interface LayoutProps {
     lastPath: string;
@@ -16,6 +17,9 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
     const router = useRouter();
+    const leftSphereAnimationControl = useAnimation();
+    const rightSphereAnimationControl = useAnimation();
+    const [isAnimating, setIsAnimating] = useState(true);
     const currentPath = router.pathname;
     const { prevPath, nextPath } = getPrevAndNextPaths(currentPath);
 
@@ -30,38 +34,91 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
         isEnteringFromRight,
         isExitingFromLeft,
         isExitingFromRight,
-    } = getEnterOrExitDirections({
-        isEntering,
-        incomingPath: currentPath,
-        lastPath,
-        lastPrevPath: lastPrevPath.current,
-        lastNextPath: lastNextPath.current,
-    });
+    } = useMemo(
+        () =>
+            getEnterOrExitDirections({
+                isEntering,
+                incomingPath: currentPath,
+                lastPath,
+                lastPrevPath: lastPrevPath.current,
+                lastNextPath: lastNextPath.current,
+            }),
+        [
+            isEntering,
+            currentPath,
+            lastPath,
+            lastPrevPath.current,
+            lastNextPath.current,
+        ],
+    );
 
-    const animationVariants = getAnimationVariants({
-        isEnteringFromLeft,
-        isEnteringFromRight,
-        isExitingFromLeft,
-        isExitingFromRight,
-    });
+    const animationVariants = useMemo(
+        () =>
+            getAnimationVariants({
+                isEnteringFromLeft,
+                isEnteringFromRight,
+                isExitingFromLeft,
+                isExitingFromRight,
+            }),
+        [
+            isEnteringFromLeft,
+            isEnteringFromRight,
+            isExitingFromLeft,
+            isExitingFromRight,
+        ],
+    );
 
-    useEffect(() => {
-        lastPrevPath.current = prevPath;
-        lastNextPath.current = nextPath;
-    }, [prevPath, nextPath]);
+    const onPageTransitionAnimationStart = () => {
+        setIsAnimating(true);
+        if (isExitingFromRight) {
+            leftSphereAnimationControl.start({
+                rotateZ: -180,
+                origin: "center",
+                transition: { duration: 1 },
+            });
+        }
+        if (isExitingFromLeft) {
+            rightSphereAnimationControl.start({
+                rotateZ: -180,
+                origin: "center",
+                transition: { duration: 1 },
+            });
+        }
+    };
+
+    const onPageTransitionAnimationComplete = () => {
+        console.log(path.current, "Page transition ended");
+        setIsAnimating(false);
+    };
+
+    let isPrevSphereVisible = !!lastPrevPath.current;
+    let isNextSphereVisible = !!lastNextPath.current;
+
+    if (isEnteringFromLeft && isNextSphereVisible) {
+        isNextSphereVisible = !isAnimating;
+    }
+
+    if (isEnteringFromRight && isPrevSphereVisible) {
+        isPrevSphereVisible = !isAnimating;
+    }
 
     return (
         <LayoutContainer
             initial="enter"
             animate="animate"
             exit="exit"
+            onAnimationStart={onPageTransitionAnimationStart}
+            onAnimationComplete={onPageTransitionAnimationComplete}
             variants={animationVariants}
             transition={pageTransitionAnimation.transition}
         >
-            {prevPath && (
+            {isPrevSphereVisible && (
                 <Link href={prevPath}>
                     <a>
-                        <SphereContainer left>
+                        <SphereContainer
+                            left
+                            animate={leftSphereAnimationControl}
+                        >
                             <Sphere mask="left" />
                         </SphereContainer>
                     </a>
@@ -70,10 +127,13 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
 
             {children}
 
-            {nextPath && (
+            {isNextSphereVisible && (
                 <Link href={nextPath}>
                     <a>
-                        <SphereContainer right>
+                        <SphereContainer
+                            right
+                            animate={rightSphereAnimationControl}
+                        >
                             <Sphere mask="right" />
                         </SphereContainer>
                     </a>

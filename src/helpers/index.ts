@@ -56,9 +56,9 @@ export function getEnterOrExitDirections({
         }
     } else {
         if (lastPrevPath === incomingPath) {
-            directions.isExitingFromLeft = true;
-        } else if (lastNextPath === incomingPath) {
             directions.isExitingFromRight = true;
+        } else if (lastNextPath === incomingPath) {
+            directions.isExitingFromLeft = true;
         }
     }
     return directions;
