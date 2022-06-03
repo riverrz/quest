@@ -5,6 +5,7 @@ export const globalStyles = globalCss({
         margin: 0,
         padding: 0,
         boxSizing: "border-box",
+        cursor: "none !important",
     },
     html: {
         minHeight: "100vh",

@@ -7,6 +7,7 @@ import Nav from "@components/Nav/Nav";
 import Layout from "@components/Layout/Layout";
 import { styled } from "@styles/stitches.config";
 import { useLastRoute } from "@hooks";
+import { Cursor } from "@components/common";
 
 const AppWrap = styled("div", {
     height: "100%",
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
                 />
             </Head>
             <AppWrap>
+                <Cursor />
                 <LazyMotion features={domAnimation} strict>
                     <AnimatePresence
                         exitBeforeEnter={false}
