@@ -13,9 +13,11 @@ const AppWrap = styled("div", {
     width: "100%",
 });
 
-function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
+function MyApp({ pageProps, router, ...props }: AppProps): JSX.Element {
     globalStyles();
     const lastRoute = useLastRoute();
+
+    const Component = props.Component as any;
 
     return (
         <>
