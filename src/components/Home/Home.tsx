@@ -1,5 +1,5 @@
 import React from "react";
-import { Halo } from "@components/common";
+import { Halo, Spacer } from "@components/common";
 import { Container } from "./Home.styles";
 import {
     Heading,
@@ -7,7 +7,6 @@ import {
     SubHeading,
     Description,
     SubHeadingContainer,
-    Spacer,
     TopSection,
 } from "./Home.styles";
 

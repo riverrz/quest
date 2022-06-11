@@ -1,16 +1,17 @@
 import React from "react";
 import { NextSeo } from "next-seo";
+import Work from "@components/Work/Work";
 
-const Work: React.FC = () => {
+const WorkPage: React.FC = () => {
     return (
         <>
             <NextSeo
                 title="Work"
                 description="Get to know my professional work experiences!"
             />
-            <h1>Work</h1>
+            <Work />
         </>
     );
 };
 
-export default Work;
+export default WorkPage;

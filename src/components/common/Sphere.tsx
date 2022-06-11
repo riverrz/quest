@@ -15,7 +15,7 @@ const SphereContainer = styled("div", {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    border: "10px solid $grey",
+    border: "10px solid $white",
     borderRadius: "50%",
     [`&:hover ${StyledSphere}`]: {
         transform: "scale(1.1)",
@@ -53,7 +53,13 @@ export const Sphere: React.FC<React.ComponentProps<typeof SphereContainer>> = (
 ) => {
     return (
         <SphereContainer {...props}>
-            <Halo css={{ height: 350, width: 350 }} right left top bottom />
+            <Halo
+                css={{ height: "$haloHeight", width: "$haloWidth" }}
+                right
+                left
+                top
+                bottom
+            />
             <StyledSphere />
         </SphereContainer>
     );

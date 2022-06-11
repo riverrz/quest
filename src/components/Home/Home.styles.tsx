@@ -20,7 +20,7 @@ export const TopSection = styled("div", {
 
 export const Hero = styled("div", {
     position: "relative",
-    padding: "10vh 15vw",
+    padding: "$pagePadding",
     "@md": {
         padding: "50px",
     },
@@ -43,11 +43,4 @@ export const Description = styled("p", {
     marginTop: 15,
     lineHeight: 2.2,
     color: "$grey",
-});
-
-export const Spacer = styled("div", {
-    borderTop: "6px solid $white",
-    height: "100%",
-    width: 30,
-    marginTop: 6,
 });

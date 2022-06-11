@@ -17,6 +17,13 @@ export const {
             grey: "rgb(255,255,255, 0.7)",
             orange: "#FFAA33",
         },
+        sizes: {
+            haloHeight: "350px",
+            haloWidth: "350px",
+        },
+        space: {
+            pagePadding: "10vh 5vw 0 15vw",
+        },
     },
     media: {
         sm: "(max-width: 480px)",
