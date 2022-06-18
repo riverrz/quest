@@ -8,7 +8,11 @@ import {
     getEnterOrExitDirections,
     getAnimationVariants,
 } from "@helpers";
-import { pageTransitionAnimation } from "@lib/animation";
+import {
+    PageTransitionAnimation,
+    SphereAnimation,
+    SphereContainerAnimation,
+} from "@lib/animation";
 import { useAnimation } from "framer-motion";
 
 interface LayoutProps {
@@ -70,18 +74,20 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
 
     const onPageTransitionAnimationStart = () => {
         setIsAnimating(true);
+
         if (isExitingFromRight) {
-            leftSphereAnimationControl.start({
-                rotateZ: -180,
-                origin: "center",
-                transition: { duration: 1 },
+            leftSphereAnimationControl.start((elem) => {
+                return elem === "container"
+                    ? SphereContainerAnimation
+                    : SphereAnimation;
             });
         }
         if (isExitingFromLeft) {
-            rightSphereAnimationControl.start({
-                rotateZ: -180,
-                origin: "center",
-                transition: { duration: 1 },
+            rightSphereAnimationControl.start((elem) => {
+                if (elem === "container") {
+                    return SphereContainerAnimation;
+                }
+                return SphereAnimation;
             });
         }
     };
@@ -110,7 +116,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
             onAnimationStart={onPageTransitionAnimationStart}
             onAnimationComplete={onPageTransitionAnimationComplete}
             variants={animationVariants}
-            transition={pageTransitionAnimation.transition}
+            transition={PageTransitionAnimation.transition}
         >
             {isPrevSphereVisible && (
                 <Link href={prevPath}>
@@ -118,8 +124,9 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
                         <SphereContainer
                             left
                             animate={leftSphereAnimationControl}
+                            custom="container"
                         >
-                            <Sphere left />
+                            <Sphere left animate={leftSphereAnimationControl} />
                         </SphereContainer>
                     </a>
                 </Link>
@@ -133,8 +140,12 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
                         <SphereContainer
                             right
                             animate={rightSphereAnimationControl}
+                            custom="container"
                         >
-                            <Sphere right />
+                            <Sphere
+                                right
+                                animate={rightSphereAnimationControl}
+                            />
                         </SphereContainer>
                     </a>
                 </Link>

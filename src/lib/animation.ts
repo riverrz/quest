@@ -1,4 +1,4 @@
-export const pageTransitionAnimation = {
+export const PageTransitionAnimation = {
     name: "Page Transition Animation",
     variants: {
         enterLeft: {
@@ -20,4 +20,14 @@ export const pageTransitionAnimation = {
     transition: {
         duration: 1,
     },
+};
+
+export const SphereContainerAnimation = {
+    rotateZ: -180,
+    origin: "center",
+    transition: { duration: 1 },
+};
+export const SphereAnimation = {
+    opacity: [1, 0, 1],
+    transition: { duration: 1 },
 };

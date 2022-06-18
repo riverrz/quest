@@ -1,5 +1,5 @@
 import { NAV_ITEMS } from "@constants/navItems";
-import { pageTransitionAnimation } from "@lib/animation";
+import { PageTransitionAnimation } from "@lib/animation";
 
 export function getPrevAndNextPaths(currentPath: string): {
     prevPath: string;
@@ -77,23 +77,23 @@ export function getAnimationVariants({
     isExitingFromLeft,
     isExitingFromRight,
 }: GetAnimationVariantsProps): Partial<
-    typeof pageTransitionAnimation.variants
+    typeof PageTransitionAnimation.variants
 > {
     const variants = {
-        animate: pageTransitionAnimation.variants.animate,
-        exit: pageTransitionAnimation.variants.exitLeft,
-        enter: pageTransitionAnimation.variants.enterLeft,
+        animate: PageTransitionAnimation.variants.animate,
+        exit: PageTransitionAnimation.variants.exitLeft,
+        enter: PageTransitionAnimation.variants.enterLeft,
     };
     if (isEnteringFromLeft) {
-        variants.enter = pageTransitionAnimation.variants.enterLeft;
+        variants.enter = PageTransitionAnimation.variants.enterLeft;
     } else if (isEnteringFromRight) {
-        variants.enter = pageTransitionAnimation.variants.enterRight;
+        variants.enter = PageTransitionAnimation.variants.enterRight;
     }
 
     if (isExitingFromLeft) {
-        variants.exit = pageTransitionAnimation.variants.exitLeft;
+        variants.exit = PageTransitionAnimation.variants.exitLeft;
     } else if (isExitingFromRight) {
-        variants.exit = pageTransitionAnimation.variants.exitRight;
+        variants.exit = PageTransitionAnimation.variants.exitRight;
     }
 
     return variants;

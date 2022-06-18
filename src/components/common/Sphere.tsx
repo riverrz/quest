@@ -1,7 +1,8 @@
 import { styled } from "@styles/stitches.config";
+import { m } from "framer-motion";
 import { Halo } from "@components/common";
 
-const StyledSphere = styled("div", {
+const StyledSphere = styled(m.div, {
     height: 150,
     width: 150,
     background: "linear-gradient(to right, transparent 45%, $grey)",
@@ -68,11 +69,11 @@ const SphereContainer = styled("div", {
     },
 });
 
-export const Sphere: React.FC<React.ComponentProps<typeof SphereContainer>> = (
+export const Sphere: React.FC<React.ComponentProps<typeof StyledSphere>> = (
     props,
 ) => {
     return (
-        <SphereContainer {...props}>
+        <SphereContainer left={props.left} right={props.right}>
             <Halo
                 css={{ height: "$haloHeight", width: "$haloWidth" }}
                 right
@@ -80,7 +81,7 @@ export const Sphere: React.FC<React.ComponentProps<typeof SphereContainer>> = (
                 top
                 bottom
             />
-            <StyledSphere left={props.left} right={props.right} />
+            <StyledSphere {...props} />
         </SphereContainer>
     );
 };
