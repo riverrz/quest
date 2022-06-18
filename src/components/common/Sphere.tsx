@@ -4,44 +4,64 @@ import { Halo } from "@components/common";
 const StyledSphere = styled("div", {
     height: 150,
     width: 150,
-    backgroundColor: "$grey",
-    borderRadius: "50%",
+    background: "linear-gradient(to right, transparent 45%, $grey)",
     transition: "transform 0.3s",
+    position: "relative",
+    borderRadius: "50%",
+    zIndex: 0,
+    variants: {
+        left: {
+            true: {
+                background: "linear-gradient(to right, transparent 45%, $grey)",
+            },
+        },
+        right: {
+            true: {
+                background: "linear-gradient(to left, transparent 45%, $grey)",
+            },
+        },
+    },
 });
 
 const SphereContainer = styled("div", {
     position: "relative",
-    padding: 15,
+    padding: 20,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    border: "10px solid $white",
-    borderRadius: "50%",
     [`&:hover ${StyledSphere}`]: {
-        transform: "scale(1.1)",
+        transform: "scale(0.9)",
     },
-    "&::after": {
+    "&::before": {
         content: "",
         position: "absolute",
-        zIndex: 1,
-        backgroundColor: "#000",
+        zIndex: -1,
+        inset: 0,
+        borderRadius: "50%",
+        padding: 5,
+        "-webkit-mask-composite": "xor",
+        maskComposite: "exclude",
     },
     variants: {
-        mask: {
-            left: {
-                "&:after": {
-                    top: -10,
-                    width: "calc(50% + 10px)",
-                    left: -10,
-                    bottom: -10,
+        left: {
+            true: {
+                "&::before": {
+                    background:
+                        "linear-gradient(to right, transparent 25%, $grey)",
+                    "-webkit-mask":
+                        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                    mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                 },
             },
-            right: {
-                "&:after": {
-                    top: -10,
-                    width: "calc(50% + 10px)",
-                    right: -10,
-                    bottom: -10,
+        },
+        right: {
+            true: {
+                "&::before": {
+                    background:
+                        "linear-gradient(to left, transparent 25%, $grey)",
+                    "-webkit-mask":
+                        "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                    mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                 },
             },
         },
@@ -60,7 +80,7 @@ export const Sphere: React.FC<React.ComponentProps<typeof SphereContainer>> = (
                 top
                 bottom
             />
-            <StyledSphere />
+            <StyledSphere left={props.left} right={props.right} />
         </SphereContainer>
     );
 };

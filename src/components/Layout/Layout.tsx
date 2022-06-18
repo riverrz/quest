@@ -119,7 +119,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
                             left
                             animate={leftSphereAnimationControl}
                         >
-                            <Sphere mask="left" />
+                            <Sphere left />
                         </SphereContainer>
                     </a>
                 </Link>
@@ -134,7 +134,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
                             right
                             animate={rightSphereAnimationControl}
                         >
-                            <Sphere mask="right" />
+                            <Sphere right />
                         </SphereContainer>
                     </a>
                 </Link>
