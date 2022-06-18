@@ -27,7 +27,7 @@ const StyledSphere = styled(m.div, {
 
 const SphereContainer = styled("div", {
     position: "relative",
-    padding: 20,
+    padding: 25,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -42,7 +42,7 @@ const SphereContainer = styled("div", {
         zIndex: -1,
         inset: 0,
         borderRadius: "50%",
-        padding: 5,
+        padding: 8,
         "-webkit-mask-composite": "xor",
         maskComposite: "exclude",
     },
