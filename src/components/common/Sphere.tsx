@@ -34,6 +34,8 @@ const SphereContainer = styled("div", {
     [`&:hover ${StyledSphere}`]: {
         transform: "scale(0.9)",
     },
+    boxShadow: "0px 0px 50px rgb(255 255 255 / 40%)",
+    borderRadius: "50%",
     "&::before": {
         content: "",
         position: "absolute",
