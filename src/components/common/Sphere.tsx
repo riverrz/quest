@@ -5,7 +5,7 @@ import { Halo } from "@components/common";
 const StyledSphere = styled(m.div, {
     height: 150,
     width: 150,
-    background: "linear-gradient(to right, transparent 45%, $grey)",
+    background: "linear-gradient(to right, transparent 45%, $white)",
     transition: "transform 0.3s",
     position: "relative",
     borderRadius: "50%",
@@ -13,12 +13,13 @@ const StyledSphere = styled(m.div, {
     variants: {
         left: {
             true: {
-                background: "linear-gradient(to right, transparent 45%, $grey)",
+                background:
+                    "linear-gradient(to right, transparent 45%, $white)",
             },
         },
         right: {
             true: {
-                background: "linear-gradient(to left, transparent 45%, $grey)",
+                background: "linear-gradient(to left, transparent 45%, $white)",
             },
         },
     },
@@ -48,7 +49,7 @@ const SphereContainer = styled("div", {
             true: {
                 "&::before": {
                     background:
-                        "linear-gradient(to right, transparent 25%, $grey)",
+                        "linear-gradient(to right, transparent 25%, $white)",
                     "-webkit-mask":
                         "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                     mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
@@ -59,7 +60,7 @@ const SphereContainer = styled("div", {
             true: {
                 "&::before": {
                     background:
-                        "linear-gradient(to left, transparent 25%, $grey)",
+                        "linear-gradient(to left, transparent 25%, $white)",
                     "-webkit-mask":
                         "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                     mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
