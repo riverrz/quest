@@ -16,6 +16,11 @@ export const {
             white: "rgb(255,255,255)",
             grey: "rgb(255,255,255, 0.7)",
             orange: "#FFAA33",
+            pink: "#fc0380",
+            blue: "#9fbaf9",
+            indigo: "#7274f3",
+            gradient:
+                "linear-gradient(91.83deg, $pink -20.26%, $blue 20.55%, $indigo 60.81%)",
         },
         sizes: {
             haloHeight: "350px",

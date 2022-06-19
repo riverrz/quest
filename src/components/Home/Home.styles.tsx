@@ -1,3 +1,4 @@
+import { PageHeading } from "@components/common";
 import { styled } from "@styles/stitches.config";
 
 export const Container = styled("div", {
@@ -5,7 +6,7 @@ export const Container = styled("div", {
     color: "$white",
 });
 
-export const Heading = styled("h1", {
+export const Heading = styled(PageHeading, {
     fontSize: "8vw",
     marginBottom: "2vw",
     "@sm": {

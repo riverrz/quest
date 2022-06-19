@@ -1,6 +1,11 @@
 import React from "react";
 import { AppProps } from "next/app";
-import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
+import {
+    AnimatePresence,
+    domAnimation,
+    LazyMotion,
+    AnimateSharedLayout,
+} from "framer-motion";
 import { globalStyles } from "@styles/globalStyles";
 import Head from "next/head";
 import Nav from "@components/Nav/Nav";
@@ -29,15 +34,17 @@ function MyApp({ pageProps, router, ...props }: AppProps): JSX.Element {
             </Head>
             <AppWrap>
                 <LazyMotion features={domAnimation} strict>
-                    <AnimatePresence
-                        exitBeforeEnter={false}
-                        initial={false}
-                        onExitComplete={() => window.scrollTo(0, 0)}
-                    >
-                        <Layout key={router.pathname} lastPath={lastRoute}>
-                            <Component {...pageProps} />
-                        </Layout>
-                    </AnimatePresence>
+                    <AnimateSharedLayout>
+                        <AnimatePresence
+                            exitBeforeEnter={false}
+                            initial={false}
+                            onExitComplete={() => window.scrollTo(0, 0)}
+                        >
+                            <Layout key={router.pathname} lastPath={lastRoute}>
+                                <Component {...pageProps} />
+                            </Layout>
+                        </AnimatePresence>
+                    </AnimateSharedLayout>
                 </LazyMotion>
             </AppWrap>
             <Nav />
