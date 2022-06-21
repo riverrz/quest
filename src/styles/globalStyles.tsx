@@ -5,7 +5,7 @@ export const globalStyles = globalCss({
         margin: 0,
         padding: 0,
         boxSizing: "border-box",
-        cursor: "url(/assets/cursor.svg), auto",
+        cursor: "url(/assets/sphere-cursor.svg), auto",
     },
     html: {
         minHeight: "100vh",
