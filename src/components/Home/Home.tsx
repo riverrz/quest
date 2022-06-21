@@ -23,7 +23,7 @@ const Home: React.FC = () => {
                         <SubHeading>Shivam Kumar</SubHeading>
                         <Description>
                             Full-Stack developer <br />
-                            based in Delhi
+                            based in Gurgaon
                         </Description>
                     </div>
                 </SubHeadingContainer>

@@ -14,7 +14,7 @@ const Work: React.FC = () => {
             <div>
                 <Heading>Work.</Heading>
                 <SubHeadingContainer>
-                    <Spacer />
+                    <Spacer css={{ marginTop: 10 }} />
                     <Description>
                         You can't use up creativity <br />
                         The more you use,
