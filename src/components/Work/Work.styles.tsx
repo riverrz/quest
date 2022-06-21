@@ -30,6 +30,7 @@ export const SubHeadingContainer = styled("div", {
 export const Description = styled("h5", {
     fontSize: 18,
     color: "$grey",
+    lineHeight: 2,
 });
 
 export const WorkTilesContainer = styled("div", {
