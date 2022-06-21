@@ -13,7 +13,12 @@ export const Container = styled("div", {
 });
 
 export const Heading = styled(PageHeading, {
-    fontSize: "4rem",
+    fontSize: "6vw",
+    marginBottom: "2vw",
+    "@sm": {
+        fontSize: "40px",
+        marginBottom: "20px",
+    },
 });
 
 export const SubHeadingContainer = styled("div", {
@@ -22,7 +27,7 @@ export const SubHeadingContainer = styled("div", {
     marginTop: "2rem",
 });
 
-export const SubHeading = styled("h5", {
+export const Description = styled("h5", {
     fontSize: 18,
     color: "$grey",
 });

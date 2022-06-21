@@ -3,7 +3,7 @@ import React from "react";
 import {
     Container,
     Heading,
-    SubHeading,
+    Description,
     SubHeadingContainer,
     WorkTilesContainer,
 } from "./Work.styles";
@@ -15,7 +15,12 @@ const Work: React.FC = () => {
                 <Heading>Work.</Heading>
                 <SubHeadingContainer>
                     <Spacer />
-                    <SubHeading>Creativity</SubHeading>
+                    <Description>
+                        You can't use up creativity <br />
+                        The more you use,
+                        <br />
+                        the more you have
+                    </Description>
                 </SubHeadingContainer>
             </div>
             <WorkTilesContainer>
