@@ -8,7 +8,9 @@ import {
     Description,
     SubHeadingContainer,
     TopSection,
+    CanvasContainer,
 } from "./Home.styles";
+import Canvas from "@components/common/Canvas";
 
 const Home: React.FC = () => {
     return (
@@ -16,6 +18,9 @@ const Home: React.FC = () => {
             <TopSection />
             <Hero>
                 <Halo left right />
+                <CanvasContainer>
+                    <Canvas />
+                </CanvasContainer>
                 <Heading>Hello.</Heading>
                 <SubHeadingContainer>
                     <Spacer />
