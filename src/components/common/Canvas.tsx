@@ -5,15 +5,15 @@ import Model from "./Model";
 export default function Canvas(): JSX.Element {
     return (
         <FiberCanvas
-            camera={{ position: [2, 0, 12.25], fov: 12 }}
+            camera={{ position: [2, 0, 12.25], fov: 18 }}
             style={{
                 backgroundColor: "transparent",
-                width: 400,
-                height: 600,
+                width: 800,
+                height: 800,
                 position: "absolute",
                 top: "50%",
                 left: "50%",
-                transform: "translate(-50%, -60%)",
+                transform: "translate(-50%, -50%)",
             }}
         >
             <ambientLight intensity={1.25} />
