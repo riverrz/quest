@@ -14,6 +14,10 @@ class CustomDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    <link
+                        href="https://fonts.cdnfonts.com/css/sofia-pro"
+                        rel="stylesheet"
+                    />
                     <style
                         id="stitches"
                         dangerouslySetInnerHTML={{ __html: getCssText() }}

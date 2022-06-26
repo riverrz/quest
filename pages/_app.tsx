@@ -1,13 +1,7 @@
 import React from "react";
 import { AppProps } from "next/app";
-import {
-    AnimatePresence,
-    domAnimation,
-    LazyMotion,
-    AnimateSharedLayout,
-} from "framer-motion";
+import { AnimatePresence, domAnimation, LazyMotion } from "framer-motion";
 import { globalStyles } from "@styles/globalStyles";
-import Head from "next/head";
 import Nav from "@components/Nav/Nav";
 import Layout from "@components/Layout/Layout";
 import { styled } from "@styles/stitches.config";
@@ -26,25 +20,17 @@ function MyApp({ pageProps, router, ...props }: AppProps): JSX.Element {
 
     return (
         <>
-            <Head>
-                <link
-                    href="https://fonts.cdnfonts.com/css/sofia-pro"
-                    rel="stylesheet"
-                />
-            </Head>
             <AppWrap>
                 <LazyMotion features={domAnimation} strict>
-                    <AnimateSharedLayout>
-                        <AnimatePresence
-                            exitBeforeEnter={false}
-                            initial={false}
-                            onExitComplete={() => window.scrollTo(0, 0)}
-                        >
-                            <Layout key={router.pathname} lastPath={lastRoute}>
-                                <Component {...pageProps} />
-                            </Layout>
-                        </AnimatePresence>
-                    </AnimateSharedLayout>
+                    <AnimatePresence
+                        exitBeforeEnter={false}
+                        initial={false}
+                        onExitComplete={() => window.scrollTo(0, 0)}
+                    >
+                        <Layout key={router.pathname} lastPath={lastRoute}>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </AnimatePresence>
                 </LazyMotion>
             </AppWrap>
             <Nav />
