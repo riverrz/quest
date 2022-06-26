@@ -23,7 +23,8 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
     const router = useRouter();
     const leftSphereAnimationControl = useAnimation();
     const rightSphereAnimationControl = useAnimation();
-    const [isAnimating, setIsAnimating] = useState(true);
+    const [isAnimating, setIsAnimating] = useState(!!lastPath);
+
     const currentPath = router.pathname;
     const { prevPath, nextPath } = getPrevAndNextPaths(currentPath);
 
@@ -93,7 +94,6 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
     };
 
     const onPageTransitionAnimationComplete = () => {
-        console.log(path.current, "Page transition ended");
         setIsAnimating(false);
     };
 
@@ -107,6 +107,12 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
     if (isEnteringFromRight && isPrevSphereVisible) {
         isPrevSphereVisible = !isAnimating;
     }
+
+    const memoizedChildren = useMemo(() => {
+        return React.cloneElement(children as JSX.Element, {
+            isTransitioning: isAnimating,
+        });
+    }, [children, isAnimating]);
 
     return (
         <LayoutContainer
@@ -132,7 +138,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lastPath }) => {
                 </Link>
             )}
 
-            {children}
+            {memoizedChildren}
 
             {isNextSphereVisible && (
                 <Link href={nextPath}>
