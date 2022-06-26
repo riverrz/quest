@@ -12,15 +12,21 @@ import {
 } from "./Home.styles";
 import Canvas from "@components/common/Canvas";
 
-const Home: React.FC = () => {
+interface HomeProps {
+    isTransitioning: boolean;
+}
+
+const Home: React.FC<HomeProps> = ({ isTransitioning }) => {
     return (
         <Container>
             <TopSection />
             <Hero>
                 <Halo left right />
-                <CanvasContainer>
-                    <Canvas />
-                </CanvasContainer>
+                {!isTransitioning && (
+                    <CanvasContainer>
+                        <Canvas />
+                    </CanvasContainer>
+                )}
                 <Heading>Hello.</Heading>
                 <SubHeadingContainer>
                     <Spacer />
